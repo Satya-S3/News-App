@@ -31,7 +31,8 @@ capitalize(string) {
 
       async componentDidMount() {
             this.props.setProgress(10)
-            let url = `https://newsapi.org/v2/top-headlines?category=${this.props.category}&country=in&apiKey=${this.props.apiKey}&page=1&pageSize=21`
+            
+            let url = `https://newsapi.org/v2/everything?q=${this.props.category}&from=2024-11-14&sortBy=publishedAt&apiKey=${this.props.apiKey}&page=1&pageSize=21`
             this.setState({loading:true});
             let data = await fetch(url)
             let parsedData = await data.json();
@@ -44,7 +45,7 @@ capitalize(string) {
 
       handlePrev=async()=>{
             this.props.setProgress(10)
-            let url = `https://newsapi.org/v2/top-headlines?category=${this.props.category}&country=in&apiKey=${this.props.apiKey}&page=${this.state.page-1}&pageSize=21`;
+            let url = `https://newsapi.org/v2/everything?q=${this.props.category}&from=2024-11-14&sortBy=publishedAt&apiKey=${this.props.apiKey}&page=${this.state.page-1}&pageSize=21`
             this.setState({loading:true});
             let data = await fetch(url)
             let parsedData = await data.json();
@@ -58,7 +59,7 @@ capitalize(string) {
       
       handleNext=async()=>{
             this.props.setProgress(10)
-            let url = `https://newsapi.org/v2/top-headlines?category=${this.props.category}&country=in&apiKey=${this.props.apiKey}&page=${this.state.page+1}&pageSize=21`
+            let url = `https://newsapi.org/v2/everything?q=${this.props.category}&from=2024-11-14&sortBy=publishedAt&apiKey=${this.props.apiKey}&page=${this.state.page+1}&pageSize=21`
             this.setState({loading:true});
             let data = await fetch(url)
             let parsedData = await data.json();
